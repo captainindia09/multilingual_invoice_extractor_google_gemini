@@ -1,5 +1,10 @@
-Introduction of Invoice Extraction
+# Multilingual Invoice Extractor
 
+🚀 **Live App Demo:** [View Deployed App on Streamlit Cloud](https://multilingualinvoiceextractorappgemini-twvuyaunm99tkmtybawg3k.streamlit.app)
+
+---
+
+## Introduction of Invoice Extraction
 Invoice data extraction and processing, a critical function of any company’s Accounts Payable department is the process of extracting relevant data from invoices such as invoice number, supplier name, address, amount, etc.; validating the extracted data, uploading it to an ERP software, determining a match (against receipts and POs), and finally initiating payments. 
 A systematic invoice data extraction also known as Invoice data capture eliminates backlog and transaction errors, allowing you to close the books smoothly. Invoice data capture is the process of entering invoice information into an accounting system which can be as simple as a paper ledger that keeps track of outgoing payments, suppliers who received them, and payment dates. That would suffice for a small business, but imagine the turmoil such a system would cause in a major global organization.
 
