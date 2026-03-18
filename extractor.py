@@ -57,14 +57,20 @@ Invoice Text:
 
 def extract_invoice_data(text: str) -> str:
     """
-    Sends the extracted OCR text to Google Gemini (gemini-pro) 
+    Sends the extracted OCR text to Google Gemini (gemini-2.5-flash) 
     and returns its JSON response.
     """
-    if not api_key:
-        raise ValueError("GEMINI_API_KEY environment variable is missing.")
+    key = os.getenv("GEMINI_API_KEY") or os.getenv("GOOGLE_API_KEY")
+    if not key:
+        raise ValueError("GEMINI_API_KEY is missing. Please provide it in the sidebar or via environment variables.")
         
-    model = genai.GenerativeModel('gemini-pro')
+    genai.configure(api_key=key)
+        
+    model = genai.GenerativeModel('gemini-2.5-flash')
     full_prompt = PROMPT + f"\n\n{text}"
     
-    response = model.generate_content(full_prompt)
-    return response.text
+    try:
+        response = model.generate_content(full_prompt)
+        return response.text
+    except Exception as e:
+        raise RuntimeError(f"Gemini API Error: {str(e)}")
